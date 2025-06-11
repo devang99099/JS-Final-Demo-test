@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="font-sans bg-gray-100 p-8">
+
+    <h1 class="text-5xl font-bold mb-6 text-center">JavaScript Practice Test</h1>
+
+    <!-- Email Input -->
+    <section class="bg-white p-6 rounded shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Email Validation</h2>
+        <input type="email" id="mail" placeholder="Enter your email"
+            class="border border-gray-300 rounded px-4 py-2 w-full max-w-md mb-2" />
+        <button id="EmailBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Validate
+            Email</button>
+        <p id="email-para" class="mt-2 text-lg"></p>
+    </section>
+
+    <!-- Task List -->
+    <section class="bg-white p-6 rounded shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Task List</h2>
+        <input type="text" id="taskInput" placeholder="Enter a new task"
+            class="border border-gray-300 rounded px-4 py-2 w-full max-w-md mb-2" />
+        <button id="addTask" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mb-4">Add
+            Task</button>
+        <ul id="taskList" class="list-disc list-inside text-md mx-10"></ul>
+        <button id="deleteAll"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition mt-8 hidden">Delete</button>
+    </section>
+
+    <!-- Random Quote -->
+    <section class="bg-white p-6 rounded shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Random Quote</h2>
+        <button id="QuoteBtn"
+            class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition mb-2">Fetch
+            Quote</button><br>
+        <p id="quoteDisplay" class="mt-2 text-gray-800  inline-block	max-w-full">
+            Click above to fetch a quote!</p>
+    </section>
+
+    <!-- Canvas Drawing -->
+    <section class="bg-white p-6 rounded shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Canvas Drawing</h2>
+        <canvas id="drawing-canvas" width="200" height="200" class="border border-gray-300 mb-4 "></canvas>
+        <button id="btntoggle" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700 transition">Toggle
+            Color</button>
+    </section>
+
+    <!-- Timer -->
+    <section id="timer-section" class="bg-white p-4 rounded shadow mb-6 max-w-sm mx-auto">
+        <p class="text-lg font-medium text-gray-800">
+            Timer: <span id="timer" class="font-bold text-blue-600">0</span> seconds
+        </p>
+    </section>
+
+
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
