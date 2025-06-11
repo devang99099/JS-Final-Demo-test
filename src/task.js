@@ -30,10 +30,13 @@ export class TaskManager {
     this.render();
   }
 
-  
-
   AlldeleteTask(id) {
     this.tasks = this.tasks.filter((task) => !task.completed);
+    this.save();
+    this.render();
+  }
+  clearData(task) {
+    this.tasks = [];
     this.save();
     this.render();
   }
@@ -61,7 +64,7 @@ export class TaskManager {
         this.toggleTask(Number(e.target.dataset.id))
       );
     });
-    
+
     const btndlt = document.getElementById("deleteAll");
     if (this.tasks.length == 0) {
       btndlt.style.display = "none";
@@ -70,6 +73,16 @@ export class TaskManager {
     }
     btndlt.addEventListener("click", (e) =>
       this.AlldeleteTask(e.target.dataset.id)
+    );
+
+    const btndltall = document.getElementById("deleteAllData");
+    if (this.tasks.length == 0) {
+      btndltall.style.display = "none";
+    } else {
+      btndltall.style.display = "block";
+    }
+    btndltall.addEventListener("click", (e) =>
+      this.clearData(e.target.dataset)
     );
   }
 }
