@@ -4,9 +4,9 @@ import { TaskManager } from "/src/task.js";
 import { drawSquare } from "/src/canvas.js";
 import { timer } from "/src/timer.js";
 import { email } from "/src/emial.js";
+import { FunTaskManager } from "/src/tasklist.js";
 
 email();
-
 
 //Task
 
@@ -18,17 +18,13 @@ document.getElementById("addTask").addEventListener("click", () => {
   input.value = "";
 });
 
-
-
 //quote
 
-const quotebtn = document.getElementById("QuoteBtn");
-
-quotebtn.addEventListener("click", async () => {
+document.getElementById("QuoteBtn").addEventListener("click", async () => {
   const quoteDisplay = document.getElementById("quoteDisplay");
 
   quoteDisplay.textContent = "Loading...";
-  quoteDisplay.style.border = "1px solid #d1d5db";
+  quoteDisplay.style.border = "1px solid grey";
   quoteDisplay.style.borderRadius = "4px";
   quoteDisplay.style.padding = "4px 12px";
   quoteDisplay.style.marginBottom = "8px";
@@ -43,6 +39,9 @@ quotebtn.addEventListener("click", async () => {
 //canvas
 
 drawSquare();
+
+//Task funcrion
+FunTaskManager();
 
 //timer
 timer();

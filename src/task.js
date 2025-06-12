@@ -1,7 +1,7 @@
 "use strict";
 export class TaskManager {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem("tasks")) ?? [];
+    this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   }
 
   save() {
@@ -31,11 +31,11 @@ export class TaskManager {
   }
 
   AlldeleteTask(id) {
-    this.tasks = this.tasks.filter((task) => !task.completed);
+    this.tasks = this.tasks.filter((task) => task.id !== id);
     this.save();
     this.render();
   }
-  clearData(task) {
+  clearData() {
     this.tasks = [];
     this.save();
     this.render();
@@ -47,12 +47,16 @@ export class TaskManager {
       .map(
         (task) => `
         <li class="task ${task.completed ? "completed" : ""}">
-          <input type="checkbox" ${task.completed ? "checked" : ""} data-id="${
+          <input type="checkbox" ${task.completed ? "checked" : ""} id="${
           task.id
         }">
         
           ${task.text}
-          
+          <button class="deleteBtn bg-red-500 text-white font-md px-4 rounded hover:bg-red-700 transition mt-1 mx-4" id="${
+            task.id
+          }">
+            Delete
+          </button>
         </li>
 
       `
@@ -61,19 +65,15 @@ export class TaskManager {
 
     taskList.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       checkbox.addEventListener("change", (e) =>
-        this.toggleTask(Number(e.target.dataset.id))
+        this.toggleTask(Number(e.target.id))
       );
     });
 
-    const btndlt = document.getElementById("deleteAll");
-    if (this.tasks.length == 0) {
-      btndlt.style.display = "none";
-    } else {
-      btndlt.style.display = "block";
-    }
-    btndlt.addEventListener("click", (e) =>
-      this.AlldeleteTask(e.target.dataset.id)
-    );
+    taskList.querySelectorAll(".deleteBtn").forEach((btn) => {
+      btn.addEventListener("click", (e) =>
+        this.AlldeleteTask(Number(e.target.id))
+      );
+    });
 
     const btndltall = document.getElementById("deleteAllData");
     if (this.tasks.length == 0) {
@@ -81,8 +81,6 @@ export class TaskManager {
     } else {
       btndltall.style.display = "block";
     }
-    btndltall.addEventListener("click", (e) =>
-      this.clearData(e.target.dataset)
-    );
+    btndltall.addEventListener("click", (e) => this.clearData());
   }
 }

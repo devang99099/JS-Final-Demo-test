@@ -5,10 +5,10 @@ export function email() {
     const massPara = document.getElementById("email-para");
     const regex = /^[a-z]+[0-9]+@+[a-z]+\.+[a-z]/;
     if (regex.test(input)) {
-      massPara.textContent = "✅ Valid Email";
+      massPara.textContent = "Valid Email";
       massPara.style.color = "green";
     } else {
-      massPara.textContent = "❌ Invalid Email!";
+      massPara.textContent = "Invalid Email (please enter valid email)";
       massPara.style.color = "red";
     }
   });
