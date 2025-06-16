@@ -60,7 +60,7 @@ export function FunTaskManager() {
     dataList.innerHTML = datas
       .map(
         (data) => `
-        <li class="data ${data.completed ? "completed" : ""}">
+        <li class="  data ${data.completed ? "completed" : ""}">
           <input type="checkbox" ${data.completed ? "checked" : ""} id="${
           data.id
         }">
@@ -98,4 +98,5 @@ export function FunTaskManager() {
     addData(input.value);
     input.value = "";
   });
+  render();
 }

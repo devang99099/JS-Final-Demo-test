@@ -2,6 +2,7 @@
 export class TaskManager {
   constructor() {
     this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    this.render();
   }
 
   save() {
@@ -84,3 +85,11 @@ export class TaskManager {
     btndltall.addEventListener("click", (e) => this.clearData());
   }
 }
+
+const taskManager = new TaskManager();
+
+document.getElementById("addTask").addEventListener("click", () => {
+  const input = document.getElementById("taskInput");
+  taskManager.addTask(input.value);
+  input.value = "";
+});
