@@ -53,7 +53,7 @@ export class TaskManager {
         }">
         
           ${task.text}
-          <button class="deleteBtn bg-red-500 text-white font-md px-4 rounded hover:bg-red-700 transition mt-1 mx-4" id="${
+          <button class=" hover:scale-103 deleteBtn bg-red-500 text-white font-md px-4 rounded hover:bg-red-700 transition mt-1 mx-4" id="${
             task.id
           }">
             Delete
