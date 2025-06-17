@@ -8,7 +8,7 @@ export function email() {
       massPara.textContent = "Valid Email";
       massPara.style.color = "green";
     } else {
-      massPara.textContent = "Invalid Email (please enter valid email)";
+      massPara.textContent = "Invalid Email ( EX : abc1@gmial.com )";
       massPara.style.color = "red";
     }
   });
