@@ -74,6 +74,8 @@ export function FunTaskManager() {
             data.id
           }"
           style="display: ${data.completed ? "none" : "inline-block"}">
+          
+          
             Update
           </button>
         </li>
