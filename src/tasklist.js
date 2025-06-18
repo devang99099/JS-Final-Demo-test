@@ -72,7 +72,8 @@ export function FunTaskManager() {
           </button>
           <button class=" hover:scale-103 EditBtn bg-green-500 text-white font-md px-4 py-1 rounded hover:bg-green-700 transition mt-1" id="${
             data.id
-          }">
+          }"
+          style="display: ${data.completed ? "none" : "inline-block"}">
             Update
           </button>
         </li>
